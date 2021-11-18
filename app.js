@@ -18,7 +18,8 @@ const updateCountdown = () => {
   // Em SEGUNDOS para o minuto corrente acabar
   const seconds = Math.floor(difference / 1000) % 60
 
-  console.log(days, hours, minutes, seconds)
+  console.log({days, hours, minutes, seconds})
 }
 
-updateCountdown()
+// Invoca a função a cada segundo
+setInterval(updateCountdown, 1000)
