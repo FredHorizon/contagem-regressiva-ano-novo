@@ -2,9 +2,14 @@ const secondsContainer = document.querySelector('#seconds')
 const minutesContainer = document.querySelector('#minutes')
 const hoursContainer = document.querySelector('#hours')
 const daysContainer = document.querySelector('#days')
+const nextYearContainer = document.querySelector('#year')
+const spinnerLoading = document.querySelector('#loading')
+const countDownContainer = document.querySelector('#countdown')
 
 const nextYear = new Date().getFullYear() + 1
 const newYearTime = new Date(`January 01 ${nextYear} 00:00:00`)
+
+nextYearContainer.textContent = nextYear
 
 const updateCountdown = () => {
   const currentTime = new Date()
@@ -28,6 +33,11 @@ const updateCountdown = () => {
   hoursContainer.textContent = hours < 10 ? '0' + hours : hours
   daysContainer.textContent = days < 10 ? '0' + days : days
 }
+
+setTimeout(() => {
+  spinnerLoading.remove()
+  countDownContainer.style.display = 'flex'
+}, 1000)
 
 // Invoca a função a cada segundo
 setInterval(updateCountdown, 1000)
